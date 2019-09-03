@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { NgZorroAntdModule } from 'ng-zorro-antd';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -12,6 +13,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
   ],
   exports: [
     NgZorroAntdModule,
+    ReactiveFormsModule,
     HttpClientModule,
   ]
 })
