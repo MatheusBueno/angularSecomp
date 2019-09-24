@@ -1,5 +1,7 @@
-Ranking
+<h1 class="title"> Ranking</h1>
 
-<div *ngFor="let player of playerRank$ | async">
-  {{ player.user }}
-</div>
+<ul>
+  <li *ngFor="let player of playerRank$ | async" class="user">
+    {{ player.email }} - {{ player.score }}
+  </li>
+</ul>
