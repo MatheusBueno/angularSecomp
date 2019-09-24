@@ -23,6 +23,12 @@ export class GameService {
       .valueChanges();
   }
 
+  getPlayerTurn(userId: string): Observable<string> {
+    return this.database
+      .object<string>(`users/${userId}/gameId`)
+      .valueChanges();
+  }
+
   getGameData(gameId: string) {
     return this.database
       .object<number[]>(`games/${gameId}/gameData`)
