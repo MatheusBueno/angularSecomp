@@ -1,0 +1,97 @@
+<!-- <section class="container">
+  <div class="content">
+    <div class="board">
+      <app-block
+        *ngFor="let item of gameData$ | async; let i = index"
+        [index]="i"
+        [value]="item"
+        (selecteIndex)="userSelectIndex($event)"
+      ></app-block>
+    </div>
+  </div>
+  <div class="ranking">
+    Ranking
+
+    <div *ngFor="let player of playerRank$ | async">
+      {{ player.user }}
+    </div>
+  </div>
+</section> -->
+
+<nz-layout>
+  <nz-header>
+    <app-header (openModalEmitter)="openModal()"></app-header>
+  </nz-header>
+  <nz-layout>
+    <nz-content class="content">
+      <div class="board">
+        <app-block
+          *ngFor="let item of gameData$ | async; let i = index"
+          [index]="i"
+          [value]="item"
+          (selecteIndex)="userSelectIndex($event)"
+        ></app-block>
+      </div>
+    </nz-content>
+    <nz-sider>
+      <app-ranking></app-ranking>
+    </nz-sider>
+  </nz-layout>
+</nz-layout>
+
+<nz-modal
+  [(nzVisible)]="modalLoginIsVisible"
+  nzTitle="Login"
+  (nzOnCancel)="modalLoginIsVisible = false"
+>
+  <form
+    nz-form
+    [formGroup]="loginForm"
+    class="login-form"
+    (ngSubmit)="submitForm()"
+  >
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Email inválido">
+        <nz-input-group nzPrefixIcon="user">
+          <input
+            type="text"
+            nz-input
+            formControlName="email"
+            placeholder="Email"
+          />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Senha deve conter ao menos 6 caracteres">
+        <nz-input-group nzPrefixIcon="lock">
+          <input
+            type="password"
+            nz-input
+            formControlName="password"
+            placeholder="Password"
+          />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+
+  <div *nzModalFooter>
+    <button
+      nz-button
+      [nzLoading]="isLoading"
+      nzType="default"
+      (click)="handleLogin(loginForm, false)"
+    >
+      Criar conta
+    </button>
+    <button
+      nz-button
+      [nzLoading]="isLoading"
+      nzType="primary"
+      (click)="handleLogin(loginForm, true)"
+    >
+      Login
+    </button>
+  </div>
+</nz-modal>

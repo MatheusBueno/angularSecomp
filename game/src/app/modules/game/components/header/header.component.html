@@ -1,0 +1,8 @@
+<div class="header">
+  <ng-container *ngIf="existUser; else elseTemplate">
+    <button nz-button nzType="primary" (click)="logout()">Sair</button>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <button nz-button nzType="primary" (click)="openModal()">Login</button>
+  </ng-template>
+</div>
