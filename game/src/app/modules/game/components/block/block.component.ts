@@ -10,24 +10,7 @@ import { AuthenticateService } from 'src/app/shared/services/authenticate.servic
   styleUrls: ['./block.component.scss']
 })
 export class BlockComponent implements OnInit {
-  public user$: Observable<firebase.User>;
+  constructor() {}
 
-  @Input() value: number;
-  @Input() index: number;
-
-  @Output('selecteIndex') selecteIndexEmmiter = new EventEmitter<number>();
-
-  constructor(private authService: AuthenticateService) {}
-
-  ngOnInit() {
-    this.user$ = this.authService.user$;
-  }
-
-  clickedIndex(value = this.value, index = this.index) {
-    if (value !== 0) {
-      return;
-    }
-
-    this.selecteIndexEmmiter.emit(index);
-  }
+  ngOnInit() {}
 }

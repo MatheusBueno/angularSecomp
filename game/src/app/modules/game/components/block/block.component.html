@@ -1,9 +1,0 @@
-<div class="block" (click)="clickedIndex()">
-  <span [ngSwitch]="value">
-    <p *ngSwitchCase="0"> </p>
-    <p *ngSwitchCase="(user$ | async)?.uid">
-      X
-    </p>
-    <p *ngSwitchDefault> O </p>
-  </span>
-</div>

@@ -8,15 +8,9 @@ import { BlockComponent } from './components/block/block.component';
 import { GameRoutingModule } from './game-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
-import { RankingComponent } from './components/ranking/ranking.component';
 
 @NgModule({
-  declarations: [
-    BlockComponent,
-    HomeComponent,
-    HeaderComponent,
-    RankingComponent
-  ],
+  declarations: [BlockComponent, HomeComponent, HeaderComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
